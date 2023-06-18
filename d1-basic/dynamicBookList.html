@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/dynamicBookList.css" />
+    <title>Dynamic Book List</title>
+  </head>
+  <body>
+    <div class="enter-section">
+      <input class="book-input" placeholder="Input book name." />
+      <button class="add-btn">Add</button>
+    </div>
+    <div class="book-list"></div>
+    <script>
+      var model = {
+        listSize: 0,
+        currentBookName: "",
+      };
+
+      function enterBook(event) {
+        model.currentBookName = event.target.value;
+      }
+
+      function clearBookInput() {
+        model.currentBookName = "";
+        document.querySelector(".book-input").value = model.currentBookName;
+      }
+
+      function addBook(event) {
+        if (!model.currentBookName) return;
+
+        const bookId = `book-${model.listSize++}`;
+        const bookItem = document.createElement("div");
+        const bookSpan = document.createElement("span");
+        const bookNameText = document.createTextNode(model.currentBookName);
+        const removeBtn = document.createElement("button");
+        const removeBtnText = document.createTextNode("Remove");
+
+        removeBtn.appendChild(removeBtnText);
+        removeBtn.setAttribute("class", "remove-btn");
+        removeBtn.setAttribute("name", bookId);
+
+        bookSpan.appendChild(bookNameText);
+        bookItem.appendChild(bookSpan);
+        bookItem.appendChild(removeBtn);
+        bookItem.setAttribute("class", "book-item");
+        bookItem.setAttribute("id", bookId);
+        document.querySelector(".book-list").appendChild(bookItem);
+        clearBookInput();
+      }
+
+      function removeBook(event) {
+        console.log(event.target.name);
+        const match = document.querySelector(`#${event.target.name}`);
+        match.parentElement.removeChild(match);
+      }
+
+      window.onload = () => {
+        document
+          .querySelector(".book-input")
+          .addEventListener("change", enterBook);
+        document.querySelector(".add-btn").addEventListener("click", addBook);
+        document
+          .querySelector(".book-list")
+          .addEventListener("click", removeBook);
+      };
+
+      window.onunload = () => {
+        document
+          .querySelector(".book-input")
+          .removeEventListener("change", enterBook);
+        document
+          .querySelector(".add-btn")
+          .removeEventListener("click", addBook);
+        document
+          .querySelector(".book-list")
+          .removeEventListener("click", removeBook);
+      };
+    </script>
+  </body>
+</html>

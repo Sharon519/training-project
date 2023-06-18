@@ -1,0 +1,47 @@
+.enter-section {
+  margin-bottom: 16px;
+}
+
+.book-input {
+  border: 1px solid #a8bbcf;
+  border-radius: 4px;
+  color: #000000;
+  line-height: 1.125rem;
+  height: 36px;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  width: 300px;
+}
+
+button {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+  height: 36px;
+  width: 80px;
+  padding: 8px 16px;
+}
+
+.add-btn {
+  background-color: #0076d4;
+}
+
+.remove-btn {
+  background-color: #b60000;
+}
+
+.book-item {
+  padding: 5px 0;
+}
+
+.book-item span {
+  display: inline-block;
+  width: 300px;
+  margin-right: 4px;
+  box-sizing: border-box;
+  padding: 8px 16px;
+  vertical-align: middle;
+  background-color: #c8d5e1;
+  border-radius: 4px;
+}

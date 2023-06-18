@@ -1,0 +1,38 @@
+{
+  "value": [
+    {
+      "date": "6-10-2023",
+      "clientName": "client name",
+      "clientSide": "Sell",
+      "ticker": "ticker",
+      "ric": "ric",
+      "size": "size",
+      "price": 1300,
+      "notional": 1300,
+      "currency": "USD",
+      "sector": "sector",
+      "salesperson": "sales",
+      "hp": "HP"
+    },
+    {
+      "date": "6-14-2023",
+      "clientName": "client name",
+      "clientSide": "Buy",
+      "ticker": "ticker",
+      "ric": "ric",
+      "size": "size",
+      "price": 1300,
+      "notional": 1300,
+      "currency": "EUR",
+      "sector": "sector",
+      "salesperson": "sales",
+      "hp": "HT"
+    }
+  ],
+  "totalBuy": 1300,
+  "totalSell": 1300,
+  "quantity": 1300,
+  "buyNotional": 1300,
+  "sellNotional": 1300,
+  "netNotional": 1300
+}

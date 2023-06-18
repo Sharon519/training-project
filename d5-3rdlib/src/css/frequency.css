@@ -1,0 +1,48 @@
+.fre-group {
+  background-color: rgba(61, 86, 111, 0.4);
+  height: 32px;
+  width: 328px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.fre-item {
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 12px;
+  color: #80aff8;
+  position: relative;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.fre-item.active {
+  color: #19232e;
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  background-color: #e9eef3;
+}
+
+.fre-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  box-sizing: border-box;
+  height: 16px;
+  width: 1px;
+  border: 1px solid #34495f;
+}
+
+.fre-item:first-child::before,
+.fre-item.active::before,
+.fre-item.active + .fre-item::before {
+  display: none;
+}

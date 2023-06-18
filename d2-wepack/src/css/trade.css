@@ -1,0 +1,113 @@
+.trade-type {
+  background-color: rgba(61, 86, 111, 0.4);
+  height: 32px;
+  width: 241px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.trade-type-item {
+  width: 140px;
+  padding: 4px 18px;
+  text-align: center;
+  font-size: 12px;
+  color: #80aff8;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.trade-type-item:last-of-type {
+  width: 99px;
+}
+
+.trade-type-item.active {
+  color: #19232e;
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  background-color: #e9eef3;
+}
+
+.trade-traditional,
+.trade-nlp {
+  display: flex;
+  align-items: flex-end;
+}
+
+.trade-submit-btns {
+  display: flex;
+}
+
+.trade-btn {
+  width: 80px;
+  height: 32px;
+  color: #000000;
+  font-size: 14px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.trade-buy {
+  background-color: #00b755;
+}
+
+.trade-sell {
+  background-color: #ffcd00;
+}
+
+.trade-go {
+  margin-left: 0;
+  color: #ffffff;
+  background-color: #005ff1;
+}
+
+.trade-input-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.trade-input-item {
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.trade-input-item:last-child {
+  margin-right: 0;
+}
+
+.trade-input-title {
+  font-size: 12px;
+  color: #d9e2ea;
+  display: block;
+}
+
+.trade-input {
+  box-sizing: border-box;
+  height: 32px;
+  width: 160px;
+  color: #ffffff;
+  border: 1px solid #46637f;
+  border-radius: 4px;
+  background-color: #17202a;
+}
+
+.trade-input::placeholder {
+  color: #ffffff;
+}
+
+.trade-nlp-input {
+  width: 320px;
+}
+
+.separate-line {
+  height: 1px;
+  margin: 20px 0 30px 0;
+  box-sizing: border-box;
+  border-top: 1px solid #2b3d4e;
+}

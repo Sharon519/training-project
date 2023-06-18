@@ -1,0 +1,47 @@
+{
+  "01/02/2018": {
+    "buy": 2000,
+    "sell": -4000,
+    "cumulativeNet": -2000
+  },
+  "02/02/2018": {
+    "buy": 1800,
+    "sell": -2000,
+    "cumulativeNet": -1800
+  },
+  "03/02/2018": {
+    "buy": 500,
+    "sell": -100,
+    "cumulativeNet": 50
+  },
+  "04/02/2018": {
+    "buy": 5200,
+    "sell": -6000,
+    "cumulativeNet": -800
+  },
+  "05/02/2018": {
+    "buy": 6000,
+    "sell": -4000,
+    "cumulativeNet": 2000
+  },
+  "06/02/2018": {
+    "buy": 200,
+    "sell": -200,
+    "cumulativeNet": 0
+  },
+  "07/02/2018": {
+    "buy": 2000,
+    "sell": -3200,
+    "cumulativeNet": -800
+  },
+  "08/02/2018": {
+    "buy": 3800,
+    "sell": -4500,
+    "cumulativeNet": -900
+  },
+  "09/02/2018": {
+    "buy": 3700,
+    "sell": -5000,
+    "cumulativeNet": -2000
+  }
+}
