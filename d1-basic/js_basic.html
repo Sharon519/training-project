@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Basic</title>
+  </head>
+  <body>
+    <script>
+      console.log("x: ", x);
+      if (true) {
+        var x = 1;
+        let y = 2;
+        const z = 3;
+        // z = 4;
+      }
+      var x = "x";
+      console.log("x: ", x);
+      console.log("window.x : ", window.x);
+
+      var result = 0;
+      for (var i = 0; i < 10; i++) {
+        result += i;
+      }
+      console.log("result: ", result);
+      console.log(i);
+
+      for (let j = 0; j < 10; j++) {
+        result += j;
+      }
+      console.log("result: ", result);
+      // console.log(j);
+
+      var a1 = true;
+      var a2 = 1;
+      var a3 = "hello";
+      var a4 = null;
+      var a5 = undefined;
+      var a6 = Symbol(10);
+      console.log(
+        typeof a1,
+        typeof a2,
+        typeof a3,
+        typeof a4,
+        typeof a5,
+        typeof a6,
+        a6.toString()
+      );
+    </script>
+  </body>
+</html>

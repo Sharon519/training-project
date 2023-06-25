@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Flow Control</title>
+  </head>
+  <body>
+    <script>
+      var x = 0;
+      if (x <= 0) {
+        x = x + 10;
+      } else {
+        x = x - 10;
+      }
+      console.log("x : ", x);
+
+      function f() {
+        try {
+          console.log("1. do something ...");
+          throw "error occurs";
+          return "from try branch";
+        } catch (e) {
+          console.log("3. catch error ...");
+          return "from catch branch"; // this return statement is suspended until finally block has completed
+        } finally {
+          console.log("4. always do something ...");
+          return "from finally branch"; // overwrites the previous "return"
+        }
+        // return is excuted now
+      }
+      console.log(f());
+
+      let str = "";
+      for (let i = 0; i < 9; i++) {
+        str = str + i;
+      }
+      console.log(str);
+
+      // iterate only own property in object
+      var obj = { a: 1, b: 2, c: 3 };
+      for (var prop in obj) {
+        console.log("obj." + prop + " = " + obj[prop]);
+      }
+
+      // iterate iterable object such as Array, Map, Set, String
+      const arr = ["a", "b", "c"];
+      for (const element of arr) {
+        console.log(element);
+      }
+
+      var m = 0;
+      var n = 0;
+      while (m < 3) {
+        m++;
+        n += m;
+      }
+      console.log(n);
+
+      var m2 = 0;
+      var n2 = 0;
+      do {
+        m2++;
+        n2 += m2;
+      } while (n2 < 1);
+      console.log(n2);
+
+      var level = "A";
+      switch (level) {
+        case "A":
+          console.log("Good");
+          break;
+        case "B":
+          console.log("Medium");
+          break;
+        default:
+          console.log("Uknow");
+      }
+
+      let str2 = "";
+      for (let i = 0; i < 9; i++) {
+        if (i === 3) {
+          continue;
+        } else if (i === 6) {
+          break;
+        }
+        str2 = str2 + i;
+      }
+      console.log(str2);
+    </script>
+  </body>
+</html>

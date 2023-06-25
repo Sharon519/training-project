@@ -2,11 +2,31 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>My First Page</title>
+    <title>CSS Selectors</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <style type="text/css">
       body {
         background-color: #cccccc;
+      }
+
+      #first-header {
+        color: blueviolet;
+      }
+
+      .title {
+        color: forestgreen;
+      }
+
+      div[title] {
+        text-decoration: underline;
+      }
+
+      .title:hover {
+        font-weight: bold;
+      }
+
+      p::after {
+        content: "This should show after the paragraph";
       }
     </style>
     <script>
@@ -17,19 +37,19 @@
   </head>
   <body>
     <div onclick="clickParagraph()">Click me.</div>
-    <div>block element & <span>inline element</span></div>
-    <h1>Header 1</h1>
-    <h2>Header 2</h2>
+    <div title="element">block element & <span>inline element</span></div>
+    <h1 id="first-header">Header 1</h1>
+    <h2 class="title">Header 2</h2>
     <h3>Header 3</h3>
     <h4>Header 4</h4>
     <h5>Header 5</h5>
     <h6>Header 6</h6>
     <p>I am a HNU student.</p>
     <form>
-      <div>First name: <input type="text" name="fname" /></div>
-      <div>Last name: <input type="text" name="lname" /></div>
+      <div><label>First name: </label><input type="text" name="fname" /></div>
+      <div><label>Last name: </label><input type="text" name="lname" /></div>
       <div>
-        Gender:
+        <label>Gender:</label>
         <select>
           <option value="F">Female</option>
           <option value="M">Male</option>
@@ -51,7 +71,6 @@
     <a href="https://developer.mozilla.org/zh-CN/docs/Web" target="_blank"
       >MDN</a
     >
-    <br />
     <img
       class="citi-logo"
       src="images/citi.png"

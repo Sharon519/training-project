@@ -1,9 +1,12 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useCallback } from "react";
 import ThemeContext from "../context/ThemeContext";
 import HeaderView from "./HeaderView";
 import Frequency from "../components/Frequency";
 import TableView from "./TableView";
 import { useState } from "react";
+
+import TransitionSample from "../components/TransitionExample";
+import ReconciliationExample from "../components/ReconciliationExample";
 
 const MainView = () => {
   const [tableData, setTableData] = useState({});
@@ -22,9 +25,9 @@ const MainView = () => {
       });
   };
 
-  const onSelectFre = (fre) => {
+  const onSelectFre = useCallback((fre) => {
     getTableData(fre);
-  };
+  }, []);
 
   useEffect(() => {
     getTableData("1D");
@@ -36,6 +39,8 @@ const MainView = () => {
       <hr className="separate-line" />
       <Frequency onSelectFre={onSelectFre} />
       <TableView data={tableData} />
+      <TransitionSample />
+      <ReconciliationExample />
     </ThemeContext.Provider>
   );
 };

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Basic</title>
+  </head>
+  <body>
+    <script>
+      var person = new Object();
+      person.name = "Carl";
+      person.age = 18;
+      person.gender = "Male";
+      person.sayHi = function () {
+        return "Hi";
+      };
+      Object.defineProperty(person, "city", {
+        enumerable: false,
+        value: "changsha",
+      });
+      console.log(person.sayHi(), person.name);
+      console.log(Object.getOwnPropertyNames(person));
+      console.log(Object.keys(person));
+      console.log(Object.values(person));
+      delete person.gender;
+      person.age = null;
+      console.log(person);
+
+      var o = {
+        a: 7,
+        get b() {
+          return this.a + 1;
+        },
+        set c(x) {
+          this.a = x / 2;
+        },
+      };
+
+      console.log(o.a); // 7
+      console.log(o.b); // 8
+      console.log(o.c); // undefined
+      o.c = 50;
+      console.log(o.a); // 25
+      o.b = 100;
+      console.log(o.b);
+    </script>
+  </body>
+</html>

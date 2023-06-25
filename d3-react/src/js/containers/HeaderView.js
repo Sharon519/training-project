@@ -1,4 +1,5 @@
 import React, { useState, useReducer, useContext, useRef } from "react";
+import { createPortal } from "react-dom";
 import cx from "classnames";
 
 import ThemeContext from "../context/ThemeContext";
@@ -120,7 +121,11 @@ const HeaderView = () => {
         </span>
         <span
           className={cx("trade-type-item", { active: viewType === "nlp" })}
-          onClick={() => {
+          onClick={(event) => {
+            console.log(event.isDefaultPrevented());
+            console.log(event.isPropagationStopped());
+            event.stopPropagation();
+            console.log(event.isPropagationStopped());
             switchView("nlp");
           }}
         >
@@ -136,6 +141,10 @@ const HeaderView = () => {
       >
         Focus
       </button> */}
+      {/* {createPortal(
+        <p>This child is placed in the document body.</p>,
+        document.body
+      )} */}
     </>
   );
 };

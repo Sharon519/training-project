@@ -14,6 +14,9 @@ module.exports = (env) => {
       path: path.resolve(__dirname, "dist"),
       clean: true,
     },
+    resolve: {
+      extensions: [".js", ".jsx", ".json"],
+    },
     devServer: {
       static: {
         directory: path.join(__dirname, "dist"),

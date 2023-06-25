@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Event</title>
+    <style>
+      label {
+        display: inline-block;
+        width: 150px;
+      }
+
+      input {
+        width: 250px;
+      }
+      .submit {
+        width: 408px;
+        padding: 10px 0;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <button>点我！</button>
+    </div>
+    <pre id="output"></pre>
+
+    <ul>
+      <li>Apple</li>
+      <li>Banana</li>
+      <li>Pear</li>
+      <li>Orange</li>
+    </ul>
+
+    <form>
+      <div><label>User Name: </label><input type="text" id="username" /></div>
+      <div class="submit"><button type="submit">Submit</button></div>
+    </form>
+    <p></p>
+    <script>
+      const output = document.querySelector("#output");
+      function handleClick(e) {
+        // e.stopPropagation();
+        output.textContent += `You clicked at ${e.currentTarget.tagName} \n`;
+      }
+
+      const container = document.querySelector("#container");
+      const button = document.querySelector("button");
+
+      document.body.addEventListener("click", handleClick, true);
+      container.addEventListener("click", handleClick, true);
+      button.addEventListener("click", handleClick);
+
+      const form = document.querySelector("form");
+      const username = document.getElementById("username");
+      const para = document.querySelector("p");
+      form.addEventListener("submit", (e) => {
+        if (username.value === "") {
+          // e.preventDefault();
+          para.textContent = "You need to fill in both names!";
+        }
+      });
+
+      const chooseFruit = function (e) {
+        event.target.style.color = "#ff7a75";
+      };
+      const ul = document.querySelector("ul");
+      ul.addEventListener("click", chooseFruit);
+
+      window.addEventListener("unload", () => {
+        ul.removeEventListener("click", chooseFruit);
+      });
+
+      function debounce(event, wait, flag) {
+        let timer = null;
+        return function (...args) {
+          clearTimeout(timer);
+          if (!timer && flag) {
+            event.apply(this, args);
+          } else {
+            timer = setTimeout(() => {
+              event.apply(this, args);
+            }, wait);
+          }
+        };
+      }
+
+      function throttle(event, wait) {
+        let pre = 0,
+          timer = null;
+        return function (...args) {
+          clearTimeout(timer);
+          if (new Date() - pre > wait) {
+            timer = null;
+            pre = new Date();
+            event.apply(this, args);
+          } else {
+            timer = setTimeout(() => {
+              event.apply(this, args);
+            }, wait);
+          }
+        };
+      }
+
+      username.addEventListener("keydown", (e) => {
+        console.log("search with keywords : ", e.target.value);
+      });
+
+      const debounceSearch = throttle((e) => {
+        console.log("search with keywords : ", e.target.value);
+      }, 1000);
+      username.addEventListener("keydown", debounceSearch);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Prototype</title>
+  </head>
+  <body>
+    <script>
+      const myObj = {
+        name: "Carl",
+        age: 18,
+        gender: "Male",
+        city: "Changsha",
+        hi() {
+          console.log(`来自 ${this.name} 的问候`);
+        },
+      };
+      myObj.hi();
+      console.log(myObj, myObj.__proto__);
+      let object = myObj;
+      do {
+        object = Object.getPrototypeOf(object);
+        console.log(object);
+      } while (object);
+
+      class Person {
+        constructor(name, age, gender, city) {
+          this.name = name;
+          this.age = age;
+          this.gender = gender;
+          this.city = city;
+        }
+
+        hi() {
+          console.log(`Hi, this is ${this.name}`);
+        }
+      }
+      var p1 = new Person("Tom", 20, "Male", "Shanghai");
+      p1.hi();
+
+      class Student extends Person {
+        constructor(name, age, gender, city, school) {
+          super(name, age, gender, city);
+          this.school = "HNU";
+        }
+
+        hi() {
+          console.log(`Hi, this is ${this.name} from ${this.school}`);
+        }
+      }
+      var p2 = new Student("Tom", 20, "Male", "Shanghai", "HNU");
+      p2.hi();
+      console.log(p2);
+      // p2.__proto__.hi.call(p2);
+
+      function Person2(name) {
+        this.name = name;
+      }
+      Person2.prototype.hi = function () {
+        console.log(`Hi , this is ${this.name}`);
+      };
+      var p3 = new Person2("May");
+      console.log(p3);
+      p3.hi();
+    </script>
+  </body>
+</html>

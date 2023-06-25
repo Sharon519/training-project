@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, startTransition } from "react";
 import cx from "classnames";
 
 const Frequency = (props) => {
@@ -7,7 +7,9 @@ const Frequency = (props) => {
   const frequency = ["1D", "1W", "2W", "1M", "3M", "6M", "1Y", "YTD"];
 
   const onClickFre = (fre) => {
-    setActiveFre(fre);
+    startTransition(() => {
+      setActiveFre(fre);
+    });
     onSelectFre && onSelectFre(fre);
   };
 
@@ -27,3 +29,4 @@ const Frequency = (props) => {
 };
 
 export default Frequency;
+// export default React.memo(Frequency);

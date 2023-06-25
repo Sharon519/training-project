@@ -10,12 +10,43 @@
     <h1>Fetch JSON Example</h1>
     <ul></ul>
     <script>
-      //chrome.exe --disable-web-security --user-data-dir=C:\Users\Sharon\ChromeDevSession
+      const promise1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("foo");
+        }, 300);
+      });
+
+      promise1.then((value) => {
+        console.log(value);
+      });
+
+      console.log(promise1);
+
+      const promise2 = new Promise((resolve, reject) => {
+        throw new Error("error");
+      });
+
+      promise2
+        .catch((error) => {
+          console.log(error);
+          return "handled by catch";
+        })
+        .then(
+          (value) => {
+            console.log(value);
+          },
+          () => {
+            console.log("reject");
+          }
+        )
+        .finally(() => {
+          console.log("always do something...");
+        });
+
       var myList = document.querySelector("ul");
 
       fetch("./data/products.json")
         .then(function (response) {
-          console.log(response);
           if (!response.ok) {
             throw new Error("HTTP error, status = " + response.status);
           }
